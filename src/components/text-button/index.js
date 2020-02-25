@@ -14,6 +14,8 @@ export default class TextButton extends PureComponent {
     disabledTitleColor: 'rgba(0, 0, 0, .26)',
 
     shadeOpacity: 0.20,
+    
+    style: null,
   };
 
   static propTypes = {
@@ -21,7 +23,7 @@ export default class TextButton extends PureComponent {
 
     title: PropTypes.string.isRequired,
     titleColor: PropTypes.string,
-    titleStyle: Animated.Text.propTypes.style,
+    titleStyle: PropTypes.any,
     disabledTitleColor: PropTypes.string,
   };
 
