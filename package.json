@@ -15,11 +15,6 @@
     "url": "git://github.com/n4kz/react-native-material-buttons.git"
   },
 
-  "dependencies": {
-    "prop-types": "^15.5.9",
-    "react-native-material-ripple": "^0.9.1"
-  },
-
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
@@ -28,7 +23,9 @@
   "devDependencies": {
     "babel-eslint": "^10.0.0",
     "eslint": "^6.5.0",
-    "eslint-plugin-react": "^7.0.0"
+    "eslint-plugin-react": "^7.0.0",
+    "prop-types": "^15.5.9",
+    "react-native-material-ripple": "^0.9.1"
   },
 
   "scripts": {
