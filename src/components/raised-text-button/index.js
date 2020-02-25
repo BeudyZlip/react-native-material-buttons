@@ -9,6 +9,7 @@ export default class RaisedTextButton extends PureComponent {
   static defaultProps = {
     titleColor: 'rgb(66, 66, 66)',
     disabledTitleColor: 'rgba(0, 0, 0, .26)',
+    titleStyle: null,
   };
 
   static propTypes = {
@@ -16,7 +17,7 @@ export default class RaisedTextButton extends PureComponent {
 
     title: PropTypes.string.isRequired,
     titleColor: PropTypes.string,
-    titleStyle: Animated.Text.propTypes.style,
+    titleStyle: PropTypes.any,
     disabledTitleColor: PropTypes.string,
   };
 
