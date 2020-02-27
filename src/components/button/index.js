@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { View, Animated, Easing } from 'react-native';
-import Ripple from 'react-native-material-ripple';
+import { View, Animated, Easing, TouchableWithoutFeedback } from 'react-native';
 
 import { styles } from './styles';
 
 export default class Button extends PureComponent {
   static defaultProps = {
-    rippleContainerBorderRadius: 2,
-    rippleSequential: true,
 
     hitSlop: { top: 6, right: 4, bottom: 6, left: 4 },
 
@@ -26,7 +23,6 @@ export default class Button extends PureComponent {
   };
 
   static propTypes = {
-    ...Ripple.propTypes,
 
     color: PropTypes.string,
     disabledColor: PropTypes.string,
@@ -110,13 +106,6 @@ export default class Button extends PureComponent {
       ...props
     } = this.props;
 
-    let rippleStyle = {
-      backgroundColor: disableAnimation.interpolate({
-        inputRange: [0, 1],
-        outputRange: [color, disabledColor],
-      }),
-    };
-
     let shadeContainerStyle = {
       borderRadius: shadeBorderRadius,
     };
@@ -130,20 +119,21 @@ export default class Button extends PureComponent {
     };
 
     return (
-      <Ripple
+      <TouchableWithoutFeedback
         {...props}
 
-        style={[ styles.container, rippleStyle, style ]}
         onPress={this.onPress}
         onPressIn={this.onPressIn}
         onPressOut={this.onPressOut}
       >
-        {children}
+        <View style={[ styles.container, style ]}>
+          {children}
 
-        <View style={[ styles.shadeContainer, shadeContainerStyle ]}>
-          <Animated.View style={[ styles.shade, shadeStyle ]} />
+          <View style={[ styles.shadeContainer, shadeContainerStyle ]}>
+            <Animated.View style={[ styles.shade, shadeStyle ]} />
+          </View>
         </View>
-      </Ripple>
+      </TouchableWithoutFeedback>
     );
   }
 }
